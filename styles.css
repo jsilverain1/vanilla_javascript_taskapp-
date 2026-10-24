@@ -1,0 +1,63 @@
+
+.textbox {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"] {
+    margin-right: 8px;
+    padding: 10px;
+    border-radius: 3px;
+    border-color: black;
+}
+
+.card-container{
+   display: flex;
+   justify-content: center;
+}
+
+.card {
+    
+    border: 2px solid black;
+    padding: 2%;
+    margin-top: 10%;
+    border-radius: 5px;
+
+    width: 350px;
+    max-width: 90vw;
+    min-height: 200px;
+
+    box-sizing: border-box;
+
+}
+
+.add { 
+    background-color: lightgreen;
+    margin-right: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.delete {
+    background-color: red;
+    display: inline;
+    color: white;
+}
+
+.taskContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-row p {
+    margin: 0;
+    overflow-wrap: anywhere;
+    flex: 1;
+}
