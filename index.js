@@ -20,36 +20,69 @@ taskForm.addEventListener("submit", (event) => {
   const taskRow = document.createElement("div");
   taskRow.classList.add("task-row");
 
-//Created a variable to hold the value of the input 
   const newTask = document.createElement("p");
-  localStorage.setItem('newTask',taskInput.value);
-  newTask.textContent = localStorage.getItem('newTask');
-  
+
+//Created a variable to hold the value of the input 
+if (taskInput.value !== "") {
+    //const newTask = document.createElement("p");
+    localStorage.setItem('newTask',taskInput.value);
+    newTask.textContent = localStorage.getItem('newTask');  
+
+    const newDeleteButton = document.createElement("button");
+    newDeleteButton.textContent = "Delete";
+    newDeleteButton.classList.add('delete');
+
+    const complete = document.createElement("input");
+    complete.type = 'checkbox';
+
+    taskRow.append(complete,newTask, newDeleteButton);
+    taskContainer.append(taskRow);
+
+    newDeleteButton.addEventListener("click", () => {
+        taskRow.remove();
+        localStorage.removeItem('newTask');
+      });
+    
+      complete.addEventListener("change", () => {
+        newTask.style.textDecoration = complete.checked ? "line-through" : "none";
+      })
+    
+} else {
+   displayError("Please enter something");
+}
+
+function displayError (message){
+    taskContainer.textContent = message;
+    
+}
+
 
 //Created a delete button 
-  const newDeleteButton = document.createElement("button");
-  newDeleteButton.textContent = "Delete";
-  newDeleteButton.classList.add('delete');
+  //const newDeleteButton = document.createElement("button");
+  //newDeleteButton.textContent = "Delete";
+  //newDeleteButton.classList.add('delete');
   
 
 //Created a checkbox to complete a task 
-  const complete = document.createElement("input");
-  complete.type = 'checkbox';
+  //const complete = document.createElement("input");
+  //complete.type = 'checkbox';
 
 
-  taskRow.append(complete,newTask, newDeleteButton);
-  taskContainer.append(taskRow);
+    //taskRow.append(complete,newTask, newDeleteButton);
+    //taskContainer.append(taskRow);
+
+
 
   
 
-  newDeleteButton.addEventListener("click", () => {
-    taskRow.remove();
-    localStorage.removeItem('newTask');
-  });
+  //newDeleteButton.addEventListener("click", () => {
+    //taskRow.remove();
+    //localStorage.removeItem('newTask');
+  //});
 
-  complete.addEventListener("change", () => {
-    newTask.style.textDecoration = complete.checked ? "line-through" : "none";
-  })
+  //complete.addEventListener("change", () => {
+    //newTask.style.textDecoration = complete.checked ? "line-through" : "none";
+  //})
 
 });
 
