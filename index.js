@@ -22,7 +22,7 @@ taskForm.addEventListener("submit", (event) => {
 
   const newTask = document.createElement("p");
 
-//Created a variable to hold the value of the input 
+
 if (taskInput.value !== "") {
     //const newTask = document.createElement("p");
     localStorage.setItem('newTask',taskInput.value);
